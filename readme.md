@@ -79,7 +79,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
    ```
    The `UpTCR/data/finetune` directory contains proceseed TCR-antigen-HLA binding data for training and testing, the `UpTCR/data/structure` directory contains processed TCR-antigen-HLA structure data, and the `UpTCR/data/pretrained_emb` directory contains extracted pretrained peptide embeddings (pepesm) and tcra (tcr_a) and tcrb (tcr_b) embeddings.
 
-   Please note that `pretrained_emb` is too large.
+   Please note that `pretrained_emb` is large, consisting of 41,599 antigen embeddings, 27,066 TCRa embeddings, and 27,946 TCRb embeddings. Therefore, decompressing this data.zip will take a relatively long time.
 
 ## Quick Start for prediction
 Here we provide diverse settings for result reproduction. Please ensure the model weights (**finetune**) and data have been properly added. Because our UpTCR is able to predict for complete or modality-missing settings, the following scripts for different settings are provided.

@@ -1,5 +1,6 @@
 model_weights
 data
+data.zip
 *.csv
 logs
 UpTCR/__pycache__
