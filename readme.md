@@ -82,7 +82,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
    Please note that `pretrained_emb` is too large.
 
 ## Quick Start for prediction
-Here we provide diverse settings for result reproduction. Please ensure the model weights (finetune) and data have been added.
+Here we provide diverse settings for result reproduction. Please ensure the model weights (**finetune**) and data have been properly added. Because our UpTCR is able to predict for complete or modality-missing settings, the following scripts for different settings are provided.
 
 1. **Considering all TCRa, TCRb, Antigen, HLA**
     
@@ -134,9 +134,9 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     ```
 
 ## Quick Start for training, validation, and testing
-Here we provide diverse settings for result reproduction. Please ensure the model weights (pretrained) and data have been added.
+Here we provide diverse settings for model training, validation, and testing. Please ensure the model weights (**pretrained**) and data have been added. Our UpTCR is able to predict for complete interaction, modality-missing interaction, Antigen-HLA binding affinity prediction, and contact map prediction.
 
-1. **Considering all TCRa, TCRb, Antigen, HLA**
+1. **Binding specificity considering all TCRa, TCRb, Antigen, HLA**
     
     Few-shot learning:
     ```bash
@@ -150,7 +150,7 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     ```
 
 
-2. **Considering only TCRb, Antigen, HLA**
+2. **Binding specificity considering only TCRb, Antigen, HLA**
     
     Few-shot learning:
     ```bash
@@ -162,7 +162,7 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     # zero-shot learning with only TCRb, Antigen, HLA
     python scripts/missing_train/train_TCRBpMHC_zeroshot.py
     ```
-3. **Considering only TCRa, TCRb, Antigen**
+3. **Binding specificity considering only TCRa, TCRb, Antigen**
     
     Few-shot learning:
     ```bash
@@ -174,7 +174,7 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     # zero-shot learning with only TCRa, TCRb, Antigen
     python scripts/missing_train/train_TCRABp_zeroshot.py
     ```
-4. **Considering only TCRb, Antigen**
+4. **Binding specificity considering only TCRb, Antigen**
     
     Few-shot learning:
     ```bash
