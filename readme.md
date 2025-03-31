@@ -1,5 +1,9 @@
 # UpTCR: A Progressive Knowledge Transfer Framework with Integrating Any Incomplete Data for TCR-Antigen-HLA Binding Recognition
 
+This repository contains the source code for the paper: A Progressive Knowledge Transfer Framework with Integrating Any Incomplete Data for TCR-Antigen-HLA Binding Recognition.
+
+![image](./pipeline.png)
+
 UpTCR is a progressive knowledge transfer framework that learn priors from any incomplete data for diverse downstream tasks.
 
 ## Installation and Setup
@@ -73,7 +77,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
    ├── structure/
    └── pretrained_emb/
    ```
-   The `UpTCR/data/finetune` directory contains proceseed TCR-antigen-HLA binding data for training and testing, the `UpTCR/data/structure` directory contains processed TCR-antigen-HLA structure data, and the `UpTCR/data/pretrained_emb` directory contains extracted pretrained peptide embeddings and tcra and tcrb embeddings.
+   The `UpTCR/data/finetune` directory contains proceseed TCR-antigen-HLA binding data for training and testing, the `UpTCR/data/structure` directory contains processed TCR-antigen-HLA structure data, and the `UpTCR/data/pretrained_emb` directory contains extracted pretrained peptide embeddings (pepesm) and tcra (tcr_a) and tcrb (tcr_b) embeddings.
 
    Please note that `pretrained_emb` is too large.
 
@@ -84,40 +88,48 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     
     Few-shot prediction:
     ```bash
+    # few-shot prediction with tetrameric interaction
     python scripts/test/test_TCRABpMHC_fewshot.py
     ```
     Zero-shot prediction:
     ```bash
+    # zero-shot predictin with tetrameric interaction interaction
     python scripts/test/test_TCRABpMHC_zeroshot.py
     ```
 2. **Considering only TCRb, Antigen, HLA**
     
     Few-shot prediction:
     ```bash
+    # few-shot prediction with only TCRb, Antigen, HLA
     python scripts/missing_test/test_TCRBpMHC_fewshot.py
     ```
     Zero-shot prediction:
     ```bash
+    # zero-shot prediction with only TCRb, Antigen, HLA
     python scripts/missing_test/test_TCRBpMHC_zeroshot.py
     ```
 3. **Considering only TCRa, TCRb, Antigen**
     
     Few-shot prediction:
     ```bash
+    # few-shot prediction with only TCRa, TCRb, Antigen
     python scripts/missing_test/test_TCRABp_fewshot.py
     ```
     Zero-shot prediction:
     ```bash
+    # zero-shot prediction with only TCRa, TCRb, Antigen
     python scripts/missing_test/test_TCRABp_zeroshot.py
     ```
 4. **Considering only TCRb, Antigen**
     
     Few-shot prediction:
     ```bash
+    # few-shot prediction with only TCRb, Antigen
     python scripts/missing_test/test_TCRBp_fewshot.py
     ```
     Zero-shot prediction:
     ```bash
+    # zero-shot prediction with only TCRb, Antigen
     python scripts/missing_test/test_TCRBp_zeroshot.py
     ```
 
@@ -128,57 +140,64 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     
     Few-shot learning:
     ```bash
+    # few-shot learning with tetrameric interaction
     python scripts/train/train_TCRABpMHC_fewshot.py
     ```
     Zero-shot learning:
     ```bash
+    # zero-shot learning with tetrameric interaction
     python scripts/train/train_TCRABpMHC_zeroshot.py
     ```
-    Majority learning:
-    ```bash
-    python scripts/train/train_TCRABpMHC_majority.py
-    ```
+
 
 2. **Considering only TCRb, Antigen, HLA**
     
     Few-shot learning:
     ```bash
+    # few-shot learning with only TCRb, Antigen, HLA
     python scripts/missing_train/train_TCRBpMHC_fewshot.py
     ```
     Zero-shot learning:
     ```bash
+    # zero-shot learning with only TCRb, Antigen, HLA
     python scripts/missing_train/train_TCRBpMHC_zeroshot.py
     ```
 3. **Considering only TCRa, TCRb, Antigen**
     
     Few-shot learning:
     ```bash
+    # few-shot learning with only TCRa, TCRb, Antigen
     python scripts/missing_train/train_TCRABp_fewshot.py
     ```
     Zero-shot learning:
     ```bash
+    # zero-shot learning with only TCRa, TCRb, Antigen
     python scripts/missing_train/train_TCRABp_zeroshot.py
     ```
 4. **Considering only TCRb, Antigen**
     
     Few-shot learning:
     ```bash
+    # few-shot learning with only TCRb, Antigen
     python scripts/missing_train/train_TCRBp_fewshot.py
     ```
     Zero-shot learning:
     ```bash
+    # zero-shot learning with only only TCRb, Antigen
     python scripts/missing_train/train_TCRBp_zeroshot.py
     ```
 5. **Learning antigen-HLA binding affinity**
     
     Run:
     ```bash
+    # learning Antigen-HLA binding affinity
     python scripts/train/train_pMHC.py
     ```
 6. **Learning contact maps**
     
     Run:
     ```bash
+    # learning TCRa-TCRb-Antigen-HLA contact maps
     python scripts/train/train_structure.py
     ```
 
