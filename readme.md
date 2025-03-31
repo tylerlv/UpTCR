@@ -41,7 +41,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
    After extraction, the `UpTCR/model_weights` directory should contain the following:
 
    ```plaintext
-   PepAF/model_weights/
+   UpTCR/model_weights/
    ├── pretrained/
    └── finetune
    ```
