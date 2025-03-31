@@ -84,7 +84,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
 ## Quick Start for prediction
 Here we provide diverse settings for result reproduction. Please ensure the model weights (**finetune**) and data have been properly added. Because our UpTCR is able to predict for complete or modality-missing settings, the following scripts for different settings are provided.
 
-1. **Considering all TCRa, TCRb, Antigen, HLA**
+1. **Prediction considering all TCRa, TCRb, Antigen, HLA**
     
     Few-shot prediction:
     ```bash
@@ -96,7 +96,7 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     # zero-shot predictin with tetrameric interaction interaction
     python scripts/test/test_TCRABpMHC_zeroshot.py
     ```
-2. **Considering only TCRb, Antigen, HLA**
+2. **Prediction only considering TCRb, Antigen, HLA**
     
     Few-shot prediction:
     ```bash
@@ -108,7 +108,7 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     # zero-shot prediction with only TCRb, Antigen, HLA
     python scripts/missing_test/test_TCRBpMHC_zeroshot.py
     ```
-3. **Considering only TCRa, TCRb, Antigen**
+3. **Prediction only considering TCRa, TCRb, Antigen**
     
     Few-shot prediction:
     ```bash
@@ -120,7 +120,7 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     # zero-shot prediction with only TCRa, TCRb, Antigen
     python scripts/missing_test/test_TCRABp_zeroshot.py
     ```
-4. **Considering only TCRb, Antigen**
+4. **Prediction only considering TCRb, Antigen**
     
     Few-shot prediction:
     ```bash
