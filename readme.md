@@ -169,3 +169,17 @@ Here we provide diverse settings for result reproduction. Please ensure the mode
     ```bash
     python scripts/missing_train/train_TCRBp_zeroshot.py
     ```
+5. **Learning antigen-HLA binding affinity**
+    
+    Run:
+    ```bash
+    python scripts/train/train_pMHC.py
+    ```
+6. **Learning contact maps**
+    
+    Run:
+    ```bash
+    python scripts/train/train_structure.py
+    ```
+
+If you have any questions, please contact us at lvtianxu1@icloud.com.

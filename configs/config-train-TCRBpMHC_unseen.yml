@@ -1,0 +1,81 @@
+task: TCRBpMHC_unseen
+
+training:
+  gpu_device: 2
+  batch_size: 256
+  num_workers: 4
+  seed: 42
+  lr: 5.e-4
+  weight_decay: 1.e-2
+  max_epochs: 50
+  warm_epochs: 20
+  patience: 10
+  lr_scheduler: cosine
+  lr_decay_steps: 150
+  lr_decay_rate: 0.5
+  lr_decay_min_lr: 1.e-6
+  log_dir: logs/finetune/TCRBpMHC_unseen
+  save_dir: model_weights/finetune/TCRBpMHC_unseen
+
+pretrained_model:
+  epitope_model_path: model_weights/pretrained/EpitopeEncoder.pt
+  tcra_model_path: model_weights/pretrained/TCRAEncoder.pt
+  tcrb_model_path: model_weights/pretrained/TCRBEncoder.pt
+  mhc_model_path: model_weights/pretrained/MHCEncoder.pt
+  pmhc_model_path: model_weights/pretrained/pMHCFusion.pt
+  tcrab_model_path: model_weights/pretrained/TCRABFusion.pt
+
+MHCEncoder:
+  num_layers: 6
+  in_dim: 45
+  embed_dim: 256
+  mhc_len: 34
+
+EpitopeEncoder:
+  num_layers: 6
+  in_dim: 20
+  embed_dim: 256
+  esm_dim: 1280
+  epitope_len: 15 
+
+TCRAEncoder:
+  num_layers: 6
+  in_dim: 45
+  embed_dim: 256
+  esm_dim: 1280
+  cdr3_len: 38
+  fv_len: 145
+
+TCRBEncoder:
+  num_layers: 6
+  in_dim: 45
+  embed_dim: 256
+  esm_dim: 1280
+  cdr3_len: 38
+  fv_len: 140
+
+pMHCFusion:
+  num_layers: 6
+  embed_dim: 256
+
+TCRABFusion:
+  num_layers: 6
+  embed_dim: 256
+
+Finetuner:
+  num_layers: 6
+  embed_dim: 256
+
+data: 
+  train_data_path: data/finetune/abpm/zero-shot/train.csv
+  val_data_path: data/finetune/abpm/zero-shot/valid.csv
+  test_data_path: data/finetune/abpm/zero-shot/test.csv
+  pep_emb_path: data/pretrained_emb/pepesm
+  TCRA_emb_path: data/pretrained_emb/tcr_a
+  TCRB_emb_path: data/pretrained_emb/tcr_b
+  max_epitope_len: 15
+  max_mhc_len: 34
+  max_TCRA_fv: 145
+  max_TCRA_cdr: 38
+  max_TCRB_fv: 140
+  max_TCRB_cdr: 38

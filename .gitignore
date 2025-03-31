@@ -1,0 +1,10 @@
+model_weights
+data
+*.csv
+logs
+UpTCR/__pycache__
+UpTCR/dataaset/__pycache__
+UpTCR/model/__pycache__
+UpTCR/trainer/__pycache__
+UpTCR/utils/__pycache__
+vis
