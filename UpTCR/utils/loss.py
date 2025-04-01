@@ -12,7 +12,7 @@ class WeightedContrastiveLoss(nn.Module):
         neg_distance = torch.norm(mhc - neg, dim=1)
 
         weighted_pos_loss = pos_weight * pos_distance
-        weighted_neg_loss = (1-neg_weight) * torch.clamp(self.margin - neg_distance, min=0)  # 通过 margin 调整
+        weighted_neg_loss = (1-neg_weight) * torch.clamp(self.margin - neg_distance, min=0)
         total_loss = torch.mean(weighted_pos_loss + weighted_neg_loss)
 
         return total_loss 

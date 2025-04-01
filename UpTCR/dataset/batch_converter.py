@@ -413,7 +413,6 @@ class TCRABpMHCBatchConverter(object):
     def __call__(self, raw_batch):
         batch_size = len(raw_batch)
 
-        # 初始化存储编码后的数据
         epitope_seqs = []
         epitope_embs = []
         epitope_masks = []
@@ -805,7 +804,6 @@ class StructureBatchConverter(object):
             tcrb_masks.append(torch.tensor(mask_tcrb, dtype=torch.float32))
             tcrb_cdr3_start_indexs.append(torch.tensor(tcrb_cdr3_start_index, dtype=torch.float32))
 
-            # 编码 MHC 序列
             encoded_mhc, mhc_mask = mhc_encoding(mhcseq, max_seq_len=self.max_mhc_len)
             mhc_seqs.append(torch.tensor(encoded_mhc, dtype=torch.float32))
             mhc_masks.append(torch.tensor(mhc_mask, dtype=torch.float32))
