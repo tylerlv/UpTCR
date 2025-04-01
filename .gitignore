@@ -4,7 +4,7 @@ data.zip
 *.csv
 logs
 UpTCR/__pycache__
-UpTCR/dataaset/__pycache__
+UpTCR/dataset/__pycache__
 UpTCR/model/__pycache__
 UpTCR/trainer/__pycache__
 UpTCR/utils/__pycache__
