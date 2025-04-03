@@ -40,7 +40,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
 
 5. **Download Model Weights**:
 
-   Download the `model_weights.zip` file and extract it to the `UpTCR/model_weights` directory. The model_weights.zip is available on Zenodo: <https://doi.org/10.5281/zenodo.15052166>
+   Download the `model_weights.zip` file and extract it to the `UpTCR/model_weights` directory. The model_weights.zip is available on Zenodo: <https://doi.org/10.5281/zenodo.15128399>
 
    After extraction, the `UpTCR/model_weights` directory should contain the following:
 
@@ -67,7 +67,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
 
 6. **Download Processed Data**:
 
-   Download the `data.zip` file and extract it to the `UpTCR` directory, specifically to `UpTCR/data`. The data.zip is available on Zenodo: <https://doi.org/10.5281/zenodo.15052166>
+   Download the `data.zip` file and extract it to the `UpTCR` directory, specifically to `UpTCR/data`. The data.zip is available on Zenodo: <https://doi.org/10.5281/zenodo.15128399>
 
    After extraction, the `UpTCR/data` directory should contain the following:
 
