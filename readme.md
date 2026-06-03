@@ -12,12 +12,14 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
    - CPU: 10 cores, 2.5 GHz/core
    - RAM: 40GB
    - GPU: NVIDIA TESLA P40, V100, A100, A6000
-   - CUDA: 11.0
+   - CUDA: 11.0, 12.0
 
 2. **System requirements**:
    This tool is supported for Linux. The tool has been tested on the following system:
 
    - CentOS Linux release 8.2.2.2004
+   - Ubuntu 22.04
+   - Ubuntu 24.04
 
 3. **Clone the Repository**:
    ```bash
@@ -27,8 +29,8 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
 
 4. **Install Required Packages**:
    The basic environment requirements are:
-   - Python: 3.10
-   - CUDA: 11.0
+   - Python: 3.10/3.11
+   - CUDA: 11.0/12.0
 
    Use the following command to install the necessary packages as specified in the `requirements.txt` file:
 
@@ -40,7 +42,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
 
 5. **Download Model Weights**:
 
-   Download the `model_weights.zip` file and extract it to the `UpTCR/model_weights` directory. The model_weights.zip is available on Zenodo: <https://doi.org/10.5281/zenodo.15128399>
+   Download the `model_weights.zip` file and extract it to the `UpTCR/model_weights` directory. The model_weights.zip is available on Zenodo: <https://doi.org/10.5281/zenodo.20520000>
 
    After extraction, the `UpTCR/model_weights` directory should contain the following:
 
@@ -67,19 +69,34 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
 
 6. **Download Processed Data**:
 
-   Download the `data.zip` file and extract it to the `UpTCR` directory, specifically to `UpTCR/data`. The data.zip is available on Zenodo: <https://doi.org/10.5281/zenodo.15128399>
+   The processed data (~41 GiB) includes TCR-antigen-HLA binding data, structure data, and pretrained embeddings. We provide two download options:
 
-   After extraction, the `UpTCR/data` directory should contain the following:
+   **Option A: Single archive (for stable network connections)**
+
+   Download `data.zip` from Zenodo: <https://doi.org/10.5281/zenodo.15128399>, and extract it to the `UpTCR/data` directory:
+   ```bash
+   unzip data.zip -d ./data
+   ```
+
+   **Option B: Split volumes (for unreliable networks with resume support)**
+
+   To prevent network-induced transmission failures, we have also partitioned the dataset into 4 volumes (`data.7z.001` to `data.7z.004`, 10 GiB each), hosted at Hugging Face: <https://huggingface.co/datasets/DDDead/Uptcr_data>, for high-speed access.
+
+   Ensure the `p7zip` package is installed on your system. Navigate to your `UpTCR` root directory, move all 4 downloaded files into the `UpTCR/` folder, and run the following command on the **first** volume (the program will automatically detect and merge the remaining parts):
+   ```bash
+   7z x data.7z.001 -o./data
+   ```
+
+   **Directory structure after extraction:**
 
    ```plaintext
    UpTCR/data/
-   ├── finetune/
-   ├── structure/
-   └── pretrained_emb/
+   ├── finetune/        # Processed TCR-antigen-HLA binding data for training
+   ├── structure/       # Processed TCR-antigen-HLA structure data
+   └── pretrained_emb/  # Pretrained embeddings
    ```
-   The `UpTCR/data/finetune` directory contains proceseed TCR-antigen-HLA binding data for training and testing, the `UpTCR/data/structure` directory contains processed TCR-antigen-HLA structure data, and the `UpTCR/data/pretrained_emb` directory contains extracted pretrained peptide embeddings (pepesm) and tcra (tcr_a) and tcrb (tcr_b) embeddings.
 
-   Please note that `pretrained_emb` is large, consisting of 41,599 antigen embeddings, 27,066 TCRa embeddings, and 27,946 TCRb embeddings. Therefore, decompressing this data.zip will take a relatively long time.
+   > **Note:** The `pretrained_emb` directory is large, consisting of 41,599 antigen embeddings, 27,066 TCRa embeddings, and 27,946 TCRb embeddings. Decompression may take a considerable amount of time.
 
 ## Quick Start for prediction
 Here we provide diverse settings for result reproduction. Please ensure the model weights (**finetune**) and data have been properly added. Because our UpTCR is able to predict for complete or modality-missing settings, the following scripts for different settings are provided.
