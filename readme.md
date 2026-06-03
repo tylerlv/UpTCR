@@ -23,7 +23,7 @@ UpTCR is a progressive knowledge transfer framework that learn priors from any i
 
 3. **Clone the Repository**:
    ```bash
-   git clone https://github.com/TencentAILabHealthcare/PEPAF.git
+   git clone https://github.com/tylerlv/UpTCR.git
    cd UpTCR
    ```
 
